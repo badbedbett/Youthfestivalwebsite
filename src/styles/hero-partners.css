@@ -34,13 +34,22 @@
 }
 
 .hero-partner-cell--featured {
-  grid-column: 1 / -1;
+  grid-column: 3;
   justify-self: center;
-  width: calc((100% - 40px) / 5);
+  width: 100%;
   min-width: 0;
-  max-width: 220px;
+  max-width: none;
   padding: 14px 12px;
   min-height: 72px;
+}
+
+/* 3-я строка: 2 логотипа по центру, 1 и 4 колонки пустые */
+.hero-partner-cell:nth-child(9) {
+  grid-column: 2;
+}
+
+.hero-partner-cell:nth-child(10) {
+  grid-column: 4;
 }
 
 @media (max-width: 768px) {
@@ -57,17 +66,17 @@
 
   /* 4 / 4 / 2 + PROPS по центру на отдельной строке */
   .hero-partner-cell:nth-child(9) {
-    grid-column: 1 / span 3;
+    grid-column: 5 / span 3;
   }
 
   .hero-partner-cell:nth-child(10) {
-    grid-column: 4 / span 3;
+    grid-column: 8 / span 3;
   }
 
   .hero-partner-cell--featured {
-    grid-column: 1 / -1;
+    grid-column: 5 / span 4;
     justify-self: center;
-    width: calc((100% - 24px) / 4);
+    width: 100%;
     max-width: none;
     padding: 10px 8px;
     min-height: 64px;

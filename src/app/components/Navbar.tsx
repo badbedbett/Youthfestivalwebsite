@@ -13,8 +13,16 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 60)
-    window.addEventListener('scroll', onScroll)
+    const getScrollTop = () =>
+      window.scrollY ||
+      document.documentElement.scrollTop ||
+      document.body.scrollTop ||
+      0
+
+    const onScroll = () => setScrolled(getScrollTop() > 60)
+
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
@@ -59,10 +67,23 @@ export default function Navbar() {
         >
           <LogoSvg
             variant={scrolled ? 'dark' : 'light'}
+            view="full"
+            className="nav-logo-full"
             style={{
               height: 44,
               width: 'auto',
               display: 'block',
+              transition: 'opacity 0.3s',
+            }}
+          />
+          <LogoSvg
+            variant={scrolled ? 'dark' : 'light'}
+            view="compact"
+            className="nav-logo-compact"
+            style={{
+              height: 36,
+              width: 'auto',
+              display: 'none',
               transition: 'opacity 0.3s',
             }}
           />
@@ -178,9 +199,13 @@ export default function Navbar() {
         @media (max-width: 768px) {
           .hidden-mobile { display: none !important; }
           .show-mobile { display: flex !important; }
+          .nav-logo-full { display: none !important; }
+          .nav-logo-compact { display: block !important; }
         }
         @media (min-width: 769px) {
           .show-mobile { display: none !important; }
+          .nav-logo-full { display: block !important; }
+          .nav-logo-compact { display: none !important; }
         }
       `}</style>
     </nav>

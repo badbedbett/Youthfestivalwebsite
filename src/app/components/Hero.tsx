@@ -19,7 +19,7 @@ export default function Hero() {
       {/* Horse — right side background */}
       <div className="hero-horse">
         <HorseBackground
-          fillOpacity={0.22}
+          fillOpacity={0.11}
           fill="white"
           style={{ width: '100%', height: '100%' }}
         />
@@ -53,7 +53,7 @@ export default function Hero() {
 
         {/* Main heading */}
         <h1 className="hero-title">
-          ГАСТРО<br />
+          ГАСТРО-<br />
           ФЕСТИВАЛЬ<br />
           КО <span className="hero-title-accent">ДНЮ МОЛОДЁЖИ</span>
         </h1>
