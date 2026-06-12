@@ -15,7 +15,7 @@ type Partner = {
   name: string
   logo: string
   logoHeight: number
-  isProps?: boolean
+  featured?: boolean
 }
 
 const partners: Partner[] = [
@@ -28,8 +28,8 @@ const partners: Partner[] = [
   { id: 'alabuga', name: 'Алабуга Политех', logo: alabugaLogo, logoHeight: 22 },
   { id: 'beeline', name: 'Билайн', logo: beelineLogo, logoHeight: 12 },
   { id: 'enter', name: 'Enter', logo: enterLogo, logoHeight: 13 },
-  { id: 'dfm', name: 'DFM Казань', logo: dfmLogo, logoHeight: 18 },
-  { id: 'props', name: 'PROPS', logo: propsLogo, logoHeight: 18, isProps: true },
+  { id: 'dfm', name: 'DFM Казань', logo: dfmLogo, logoHeight: 12 },
+  { id: 'props', name: 'PROPS', logo: propsLogo, logoHeight: 13, featured: true },
 ]
 
 function renderLogo(logo: string, logoHeight: number) {
@@ -38,7 +38,7 @@ function renderLogo(logo: string, logoHeight: number) {
     .replace(/\s+height="[^"]*"/, '')
     .replace(
       '<svg ',
-      `<svg class="hero-partner-logo" style="width:auto;height:${logoHeight}px;max-width:92%;display:block" preserveAspectRatio="xMidYMid meet" `,
+      `<svg class="hero-partner-logo" style="width:auto;height:${logoHeight}px;max-width:94%;display:block" preserveAspectRatio="xMidYMid meet" `,
     )
 }
 
@@ -48,26 +48,13 @@ export default function HeroPartnerLogos() {
       {partners.map(partner => (
         <div
           key={partner.id}
-          className={`hero-partner-cell${partner.isProps ? ' hero-partner-cell--props' : ''}`}
+          className={`hero-partner-cell${partner.featured ? ' hero-partner-cell--featured' : ''}`}
           title={partner.name}
         >
-          {partner.isProps ? (
-            <>
-              <div
-                className="hero-partner-logo-wrap"
-                dangerouslySetInnerHTML={{ __html: renderLogo(partner.logo, partner.logoHeight) }}
-              />
-              <div className="hero-partner-props-divider" aria-hidden="true" />
-              <div className="hero-partner-props-label">
-                Генеральный информационный партнер
-              </div>
-            </>
-          ) : (
-            <div
-              className="hero-partner-logo-wrap"
-              dangerouslySetInnerHTML={{ __html: renderLogo(partner.logo, partner.logoHeight) }}
-            />
-          )}
+          <div
+            className="hero-partner-logo-wrap"
+            dangerouslySetInnerHTML={{ __html: renderLogo(partner.logo, partner.logoHeight) }}
+          />
         </div>
       ))}
     </div>
