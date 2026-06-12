@@ -1,6 +1,15 @@
 import { useState } from 'react'
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from './ui/dialog'
 
+const venuePhotos = import.meta.glob('../../imports/venue-photos/*.jpg', {
+  eager: true,
+  import: 'default',
+}) as Record<string, string>
+
+function getVenuePhoto(id: string): string | undefined {
+  return venuePhotos[`../../imports/venue-photos/${id}.jpg`]
+}
+
 interface Venue {
   id: string
   name: string
@@ -374,29 +383,44 @@ export default function BreakfastFestival() {
               }}
               onClick={() => setSelectedVenue(venue)}
             >
-              {/* Placeholder для фото */}
               <div
                 style={{
                   width: '100%',
                   paddingBottom: '60%',
                   background: 'linear-gradient(135deg, rgba(232,54,45,0.1) 0%, rgba(241,133,0,0.1) 100%)',
                   position: 'relative',
+                  overflow: 'hidden',
                 }}
               >
-                <div
-                  style={{
-                    position: 'absolute',
-                    top: '50%',
-                    left: '50%',
-                    transform: 'translate(-50%, -50%)',
-                    fontFamily: '"Dela Gothic One", cursive',
-                    fontSize: 24,
-                    color: 'rgba(232,54,45,0.2)',
-                    textAlign: 'center',
-                  }}
-                >
-                  {venue.name}
-                </div>
+                {getVenuePhoto(venue.id) ? (
+                  <img
+                    src={getVenuePhoto(venue.id)}
+                    alt={venue.name}
+                    loading="lazy"
+                    style={{
+                      position: 'absolute',
+                      inset: 0,
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover',
+                    }}
+                  />
+                ) : (
+                  <div
+                    style={{
+                      position: 'absolute',
+                      top: '50%',
+                      left: '50%',
+                      transform: 'translate(-50%, -50%)',
+                      fontFamily: '"Dela Gothic One", cursive',
+                      fontSize: 24,
+                      color: 'rgba(232,54,45,0.2)',
+                      textAlign: 'center',
+                    }}
+                  >
+                    {venue.name}
+                  </div>
+                )}
               </div>
 
               {/* Контент карточки */}
@@ -502,7 +526,6 @@ export default function BreakfastFestival() {
         >
           {selectedVenue && (
             <>
-              {/* Фото заведения */}
               <div
                 style={{
                   width: '100%',
@@ -510,22 +533,37 @@ export default function BreakfastFestival() {
                   background: 'linear-gradient(135deg, rgba(232,54,45,0.15) 0%, rgba(241,133,0,0.15) 100%)',
                   position: 'relative',
                   borderRadius: '16px 16px 0 0',
+                  overflow: 'hidden',
                 }}
               >
-                <div
-                  style={{
-                    position: 'absolute',
-                    top: '50%',
-                    left: '50%',
-                    transform: 'translate(-50%, -50%)',
-                    fontFamily: '"Dela Gothic One", cursive',
-                    fontSize: 32,
-                    color: 'rgba(232,54,45,0.25)',
-                    textAlign: 'center',
-                  }}
-                >
-                  {selectedVenue.name}
-                </div>
+                {getVenuePhoto(selectedVenue.id) ? (
+                  <img
+                    src={getVenuePhoto(selectedVenue.id)}
+                    alt={selectedVenue.name}
+                    style={{
+                      position: 'absolute',
+                      inset: 0,
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover',
+                    }}
+                  />
+                ) : (
+                  <div
+                    style={{
+                      position: 'absolute',
+                      top: '50%',
+                      left: '50%',
+                      transform: 'translate(-50%, -50%)',
+                      fontFamily: '"Dela Gothic One", cursive',
+                      fontSize: 32,
+                      color: 'rgba(232,54,45,0.25)',
+                      textAlign: 'center',
+                    }}
+                  >
+                    {selectedVenue.name}
+                  </div>
+                )}
               </div>
 
               <div style={{ padding: 'clamp(20px, 5vw, 32px)' }}>
