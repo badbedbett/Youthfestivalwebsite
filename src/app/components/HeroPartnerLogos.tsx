@@ -28,8 +28,8 @@ const partners: Partner[] = [
   { id: 'alabuga', name: 'Алабуга Политех', logo: alabugaLogo, logoHeight: 22 },
   { id: 'beeline', name: 'Билайн', logo: beelineLogo, logoHeight: 12 },
   { id: 'enter', name: 'Enter', logo: enterLogo, logoHeight: 13 },
-  { id: 'dfm', name: 'DFM Казань', logo: dfmLogo, logoHeight: 12 },
-  { id: 'props', name: 'PROPS', logo: propsLogo, logoHeight: 13, featured: true },
+  { id: 'dfm', name: 'DFM Казань', logo: dfmLogo, logoHeight: 15 },
+  { id: 'props', name: 'PROPS', logo: propsLogo, logoHeight: 22, featured: true },
 ]
 
 function renderLogo(logo: string, logoHeight: number) {

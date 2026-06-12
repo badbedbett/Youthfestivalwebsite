@@ -34,9 +34,13 @@
 }
 
 .hero-partner-cell--featured {
-  grid-column: 3;
-  justify-self: stretch;
-  padding: 14px 16px;
+  grid-column: 1 / -1;
+  justify-self: center;
+  width: calc((100% - 40px) / 5);
+  min-width: 0;
+  max-width: 220px;
+  padding: 14px 12px;
+  min-height: 72px;
 }
 
 @media (max-width: 768px) {
@@ -65,7 +69,10 @@
 
   .hero-partner-cell--featured {
     grid-column: 2 / span 3;
+    width: auto;
+    max-width: none;
     padding: 10px 8px;
+    min-height: 64px;
   }
 }
 
@@ -73,5 +80,9 @@
   .hero-partner-cell {
     min-height: 56px;
     padding: 8px 6px;
+  }
+
+  .hero-partner-cell--featured {
+    min-height: 56px;
   }
 }
