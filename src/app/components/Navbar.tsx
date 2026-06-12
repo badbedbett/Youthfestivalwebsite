@@ -44,7 +44,7 @@ export default function Navbar() {
         style={{
           maxWidth: 1280,
           margin: '0 auto',
-          padding: '0 48px',
+          padding: '0 clamp(20px, 5vw, 48px)',
           height: 72,
           display: 'flex',
           alignItems: 'center',
@@ -145,7 +145,7 @@ export default function Navbar() {
           style={{
             background: 'rgba(255,255,255,0.98)',
             backdropFilter: 'blur(16px)',
-            padding: '20px 48px',
+            padding: '20px clamp(20px, 5vw, 48px)',
             borderTop: '1px solid rgba(232,54,45,0.1)',
           }}
         >

@@ -265,7 +265,7 @@ export default function BreakfastFestival() {
         style={{
           maxWidth: 1280,
           margin: '0 auto',
-          padding: '0 48px',
+          padding: '0 clamp(20px, 5vw, 48px)',
         }}
       >
         {/* БЛОК 1: Заголовок и описание */}
@@ -492,7 +492,7 @@ export default function BreakfastFestival() {
       <Dialog open={!!selectedVenue} onOpenChange={() => setSelectedVenue(null)}>
         <DialogContent
           style={{
-            maxWidth: 640,
+            maxWidth: 'min(640px, calc(100vw - 32px))',
             maxHeight: '90vh',
             overflowY: 'auto',
             background: '#FFFFFF',
@@ -528,7 +528,7 @@ export default function BreakfastFestival() {
                 </div>
               </div>
 
-              <div style={{ padding: 32 }}>
+              <div style={{ padding: 'clamp(20px, 5vw, 32px)' }}>
                 <DialogHeader>
                   <DialogTitle
                     style={{

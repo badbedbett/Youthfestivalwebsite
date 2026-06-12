@@ -27,7 +27,7 @@ export default function Footer() {
 
       {/* Main content */}
       <div
-        style={{ padding: '80px 48px 60px', position: 'relative', zIndex: 3 }}
+        style={{ padding: '80px clamp(20px, 5vw, 48px) 60px', position: 'relative', zIndex: 3 }}
       >
         <div style={{ maxWidth: 1280, margin: '0 auto' }}>
           {/* Giant headline */}
@@ -35,7 +35,7 @@ export default function Footer() {
             <h2
               style={{
                 fontFamily: '"Dela Gothic One", cursive',
-                fontSize: 'clamp(64px, 12vw, 180px)',
+                fontSize: 'clamp(48px, 13vw, 180px)',
                 lineHeight: 1.05,
                 margin: 0,
                 letterSpacing: '-0.03em',

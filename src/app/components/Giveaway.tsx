@@ -32,7 +32,7 @@ export default function Giveaway() {
         style={{
           maxWidth: 1280,
           margin: '0 auto',
-          padding: '0 48px',
+          padding: '0 clamp(20px, 5vw, 48px)',
         }}
       >
         {/* Главный экран */}
@@ -48,7 +48,7 @@ export default function Giveaway() {
             style={{
               background: 'linear-gradient(105deg, #BF00FF 0%, #E8362D 28%, #F18500 62%, #FFDF00 100%)',
               borderRadius: 20,
-              padding: 'clamp(40px, 6vh, 64px) clamp(40px, 5vw, 64px)',
+              padding: 'clamp(28px, 6vh, 64px) clamp(24px, 5vw, 64px)',
               marginBottom: 'clamp(40px, 6vh, 60px)',
             }}
           >

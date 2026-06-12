@@ -24,7 +24,7 @@ export default function About() {
           maxWidth: 1280,
           width: '100%',
           margin: '0 auto',
-          padding: '116px 48px 80px',
+          padding: 'clamp(100px, 14vh, 116px) clamp(20px, 5vw, 48px) 80px',
           boxSizing: 'border-box',
           display: 'flex',
           flexDirection: 'column',
@@ -35,7 +35,7 @@ export default function About() {
         <h1
           style={{
             fontFamily: '"Dela Gothic One", cursive',
-            fontSize: 'clamp(38px, 5.5vw, 76px)',
+            fontSize: 'clamp(32px, 6vw, 76px)',
             lineHeight: 0.92,
             color: '#FFFFFF',
             margin: 0,
