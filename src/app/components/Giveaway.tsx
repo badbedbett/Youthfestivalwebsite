@@ -74,7 +74,9 @@ export default function Giveaway() {
                 letterSpacing: '-0.01em',
               }}
             >
-              Дарим 250 000 ₽ в гастропроекты Казани!
+              Дарим 250 000
+              <br />
+              в гастропроекты Казани!
             </p>
           </div>
 

@@ -17,18 +17,7 @@ export default function Hero() {
       }}
     >
       {/* Horse — right side background */}
-      <div
-        style={{
-          position: 'absolute',
-          right: '-4%',
-          top: '50%',
-          transform: 'translateY(-50%)',
-          width: '58%',
-          height: '105%',
-          pointerEvents: 'none',
-          zIndex: 1,
-        }}
-      >
+      <div className="hero-horse">
         <HorseBackground
           fillOpacity={0.22}
           fill="white"
@@ -63,18 +52,10 @@ export default function Hero() {
         />
 
         {/* Main heading */}
-        <h1
-          style={{
-            fontFamily: '"Dela Gothic One", cursive',
-            fontSize: 'clamp(26px, 7vw, 76px)',
-            lineHeight: 0.92,
-            color: '#FFFFFF',
-            margin: 0,
-            letterSpacing: '-0.02em',
-            textShadow: '0 4px 20px rgba(0,0,0,0.2)',
-          }}
-        >
-          ГАСТРОФЕСТИВАЛЬ<br />КО <span style={{ color: '#FFDF00' }}>ДНЮ МОЛОДЁЖИ</span>
+        <h1 className="hero-title">
+          ГАСТРО<br />
+          ФЕСТИВАЛЬ<br />
+          КО <span className="hero-title-accent">ДНЮ МОЛОДЁЖИ</span>
         </h1>
 
         {/* Description */}
@@ -121,6 +102,41 @@ export default function Hero() {
           <HeroPartnerLogos />
         </div>
       </div>
+
+      <style>{`
+        .hero-horse {
+          position: absolute;
+          right: -10%;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 78%;
+          height: 125%;
+          pointer-events: none;
+          z-index: 1;
+        }
+
+        .hero-title {
+          font-family: "Dela Gothic One", cursive;
+          font-size: clamp(32px, 6vw, 76px);
+          line-height: 0.92;
+          color: #ffffff;
+          margin: 0;
+          letter-spacing: -0.02em;
+          text-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-title-accent {
+          color: #ffdf00;
+        }
+
+        @media (max-width: 768px) {
+          .hero-horse {
+            right: -18%;
+            width: 95%;
+            height: 135%;
+          }
+        }
+      `}</style>
     </section>
   )
 }
