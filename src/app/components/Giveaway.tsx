@@ -1,16 +1,10 @@
+import GiveawayPartnerLogos from './GiveawayPartnerLogos'
+
 export default function Giveaway() {
   const handleParticipate = () => {
     // Переход в Telegram-канал
     window.open('https://t.me/your_channel', '_blank')
   }
-
-  const giveawayPartners = [
-    'Скрэмбл', 'Фильтр', 'Run Coffee', 'Terra et Silva', 'Утро',
-    'Siri', 'Основание', 'Mane', 'Almond', 'плюс',
-    'Стемфорд', 'Maman', 'ВиВолт', 'Pims', 'Бараshка',
-    'MIX CAFÉ', 'Балкон', 'LiJazz Café', 'Ташкентская кухня', 'ПИТЬКОФЕ',
-    'Хвост', 'Lumberjack', 'Амстердам', 'Московский рынок', 'Кайт',
-  ]
 
   return (
     <section
@@ -173,76 +167,9 @@ export default function Giveaway() {
             ПАРТНЕРЫ РОЗЫГРЫША
           </h3>
 
-          {/* Сетка партнёров */}
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(9, 1fr)',
-              gap: 12,
-            }}
-            className="giveaway-partners-grid"
-          >
-            {giveawayPartners.map((partner) => (
-              <div
-                key={partner}
-                style={{
-                  background: '#FFFFFF',
-                  borderRadius: 10,
-                  padding: 16,
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  minHeight: 72,
-                  border: '2px solid rgba(232,54,45,0.12)',
-                  boxShadow: '0 2px 8px rgba(0,0,0,0.06)',
-                  transition: 'all 0.25s',
-                  cursor: 'default',
-                }}
-                onMouseEnter={e => {
-                  const card = e.currentTarget as HTMLElement
-                  card.style.borderColor = '#F18500'
-                  card.style.boxShadow = '0 6px 20px rgba(241,133,0,0.2)'
-                  card.style.transform = 'translateY(-3px)'
-                }}
-                onMouseLeave={e => {
-                  const card = e.currentTarget as HTMLElement
-                  card.style.borderColor = 'rgba(232,54,45,0.12)'
-                  card.style.boxShadow = '0 2px 8px rgba(0,0,0,0.06)'
-                  card.style.transform = 'translateY(0)'
-                }}
-              >
-                <span
-                  style={{
-                    fontFamily: '"Dela Gothic One", cursive',
-                    fontSize: 'clamp(10px, 1vw, 13px)',
-                    color: '#000000',
-                    letterSpacing: '-0.005em',
-                    textAlign: 'center',
-                    lineHeight: 1.3,
-                  }}
-                >
-                  {partner}
-                </span>
-              </div>
-            ))}
-          </div>
+          <GiveawayPartnerLogos />
         </div>
       </div>
-
-      <style>{`
-        @media (max-width: 1400px) {
-          .giveaway-partners-grid { grid-template-columns: repeat(7, 1fr) !important; }
-        }
-        @media (max-width: 1000px) {
-          .giveaway-partners-grid { grid-template-columns: repeat(5, 1fr) !important; }
-        }
-        @media (max-width: 700px) {
-          .giveaway-partners-grid { grid-template-columns: repeat(3, 1fr) !important; }
-        }
-        @media (max-width: 500px) {
-          .giveaway-partners-grid { grid-template-columns: repeat(2, 1fr) !important; }
-        }
-      `}</style>
     </section>
   )
 }
