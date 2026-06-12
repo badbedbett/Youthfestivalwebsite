@@ -1,5 +1,7 @@
 import { HorseBackground } from './HorseBackground'
 import LogoSvg from './LogoSvg'
+import HeroPartnerLogos from './HeroPartnerLogos'
+import '../../styles/hero-partners.css'
 
 export default function Hero() {
   return (
@@ -116,128 +118,9 @@ export default function Hero() {
             ПАРТНЕРЫ ФЕСТИВАЛЯ
           </h3>
 
-          {/* Partners grid */}
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(5, 1fr)',
-              gap: 10,
-              marginBottom: 24,
-            }}
-            className="partners-grid"
-          >
-            {[
-              'МИНМОЛ',
-              'Молодежь Татарстан',
-              'Молодежный центр',
-              'УРАМ',
-              'Нацпроект',
-              'СБЕР',
-              'Алабуга',
-              'Билайн',
-              'Энтер',
-              'ДФМ',
-            ].map(partner => (
-              <div
-                key={partner}
-                style={{
-                  background: 'rgba(255,255,255,0.12)',
-                  backdropFilter: 'blur(8px)',
-                  border: '1.5px solid rgba(255,255,255,0.25)',
-                  borderRadius: 10,
-                  padding: 16,
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  minHeight: 72,
-                  transition: 'all 0.2s',
-                }}
-                onMouseEnter={e => {
-                  const t = e.currentTarget as HTMLElement
-                  t.style.background = 'rgba(255,255,255,0.2)'
-                  t.style.borderColor = 'rgba(255,255,255,0.4)'
-                  t.style.transform = 'translateY(-2px)'
-                }}
-                onMouseLeave={e => {
-                  const t = e.currentTarget as HTMLElement
-                  t.style.background = 'rgba(255,255,255,0.12)'
-                  t.style.borderColor = 'rgba(255,255,255,0.25)'
-                  t.style.transform = 'translateY(0)'
-                }}
-              >
-                <span
-                  style={{
-                    fontFamily: '"Dela Gothic One", cursive',
-                    fontSize: 13,
-                    color: '#FFFFFF',
-                    letterSpacing: '-0.01em',
-                    textAlign: 'center',
-                    lineHeight: 1.3,
-                  }}
-                >
-                  {partner}
-                </span>
-              </div>
-            ))}
-          </div>
-
-          {/* General Information Partner - PROPS */}
-          <div
-            style={{
-              background: 'rgba(255,255,255,0.12)',
-              backdropFilter: 'blur(8px)',
-              border: '1.5px solid rgba(255,255,255,0.25)',
-              borderRadius: 10,
-              padding: '20px 24px',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              gap: 16,
-              maxWidth: 420,
-              margin: '0 auto',
-            }}
-          >
-            <div
-              style={{
-                fontFamily: '"Dela Gothic One", cursive',
-                fontSize: 28,
-                color: '#FFFFFF',
-                letterSpacing: '0.08em',
-              }}
-            >
-              PROPS
-            </div>
-            <div
-              style={{
-                width: 2,
-                height: 24,
-                background: 'rgba(255,255,255,0.3)',
-              }}
-            />
-            <div
-              style={{
-                fontFamily: '"Inter", sans-serif',
-                fontSize: 11,
-                color: 'rgba(255,255,255,0.85)',
-                fontWeight: 600,
-                letterSpacing: '0.12em',
-                textTransform: 'uppercase',
-              }}
-            >
-              Генеральный информационный партнер
-            </div>
-          </div>
+          <HeroPartnerLogos />
         </div>
       </div>
-
-      <style>{`
-        @media (max-width: 900px) {
-          .partners-grid { grid-template-columns: repeat(3, 1fr) !important; }
-        }
-        @media (max-width: 600px) {
-          .partners-grid { grid-template-columns: repeat(2, 1fr) !important; }
-        }
-      `}</style>
     </section>
   )
 }

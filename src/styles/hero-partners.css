@@ -1,0 +1,104 @@
+.hero-partners-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.hero-partner-cell {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(8px);
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
+  border-radius: 10px;
+  padding: 12px 10px;
+  min-height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, border-color 0.2s, transform 0.2s;
+  box-sizing: border-box;
+}
+
+.hero-partner-cell:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: translateY(-2px);
+}
+
+.hero-partner-logo-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 100%;
+  line-height: 0;
+}
+
+.hero-partner-cell--props {
+  grid-column: 1 / -1;
+  justify-self: center;
+  width: min(100%, 420px);
+  gap: 14px;
+  padding: 16px 20px;
+}
+
+.hero-partner-props-divider {
+  width: 2px;
+  height: 24px;
+  flex-shrink: 0;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.hero-partner-props-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  line-height: 1.35;
+  text-align: left;
+}
+
+@media (max-width: 768px) {
+  .hero-partners-grid {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .hero-partner-cell {
+    grid-column: span 3;
+    min-height: 64px;
+    padding: 10px 8px;
+  }
+
+  .hero-partner-cell:nth-child(9) {
+    grid-column: 2 / span 3;
+  }
+
+  .hero-partner-cell:nth-child(10) {
+    grid-column: span 3;
+  }
+
+  .hero-partner-cell:nth-child(11) {
+    grid-column: span 3;
+  }
+
+  .hero-partner-cell--props {
+    grid-column: span 3;
+    width: auto;
+    max-width: none;
+    padding: 10px 8px;
+  }
+
+  .hero-partner-props-divider,
+  .hero-partner-props-label {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-partner-cell {
+    min-height: 56px;
+    padding: 8px 6px;
+  }
+}
