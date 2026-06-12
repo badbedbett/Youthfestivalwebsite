@@ -3,7 +3,7 @@ import LogoSvg from './LogoSvg'
 
 const links = [
   { label: 'Фестиваль завтраков', href: '#breakfast' },
-  { label: 'Промо события', href: '#promo' },
+  { label: 'Промо-события', href: '#promo' },
   { label: 'Большой розыгрыш', href: '#giveaway' },
   { label: 'О Дне молодёжи', href: '#about' },
 ]

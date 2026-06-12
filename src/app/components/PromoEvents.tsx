@@ -24,7 +24,7 @@ const events: Event[] = [
   },
   {
     id: 'event2',
-    date: '11 июня',
+    date: '10 июня',
     title: 'Дискуссия «Казанская HoReCa сегодня: новые форматы, запросы гостей и перспективы развития индустрии»',
     description:
       'С экспертами индустрии участники обсудят, как развивается локальная HoReCa, какие новые форматы появляются в Казани.',
@@ -43,14 +43,14 @@ const events: Event[] = [
 София Ворошилова — маркетолог Дринкит, ex SMM Московский рынок, маркетолог группы компаний ITALE, «Счастье» в Казани
 
 Юра Поладьян — шеф-кондитер нового Театра Камала и ресторана Сайяр, лучший кондитер республики 2024/2025 по версии WHERE TO EAT, гастрокритик`,
-    dateTime: '11 июня, 18:00',
-    location: 'Экстрим-парк «УРАМ», Кремлёвская набережная, 33',
+    dateTime: '10 июня, 18:00',
+    location: 'Экстрим-парк «УРАМ», Кремлевская Набережная, 33',
   },
   {
     id: 'event3',
     date: '15 июня',
     title: 'Турнир по бильярду в «Основании»',
-    description: 'В «Основании» пройдёт любительский турнир по бильярду, рассчитанный на 16 участников.',
+    description: 'В «Основании» пройдет любительский турнир по бильярду, рассчитанный на 16 участников.',
     fullDescription: `Победитель турнира получит 5 000 рублей, участники, занявшие второе и третье места, — 3 000 и 2 000 рублей соответственно.`,
     dateTime: '15 июня, 19:00',
     location: '«Основание», ул. Баумана, 9А',
@@ -59,7 +59,7 @@ const events: Event[] = [
     id: 'event4',
     date: '17 июня',
     title: 'Кофейная лекция в проекте «плюс»',
-    description: 'В проекте «плюс» пройдёт лекция о кофе и современной кофейной культуре.',
+    description: 'В проекте «плюс» пройдет лекция о кофе и современной кофейной культуре.',
     fullDescription: `Участники узнают, где и как растёт кофе, какие этапы он проходит перед тем, как оказаться в чашке, и что означает формат кофейни третьей волны.`,
     dateTime: '17 июня, 18:00',
     location: 'проект «плюс», ул. Шаляпина, 26',
@@ -127,11 +127,7 @@ export default function PromoEvents() {
 
                     <h3 className="promo-event-title">{event.title}</h3>
                     <p className="promo-event-description">{event.description}</p>
-
-                    <div className="promo-event-meta-grid">
-                      <MetaBlock label="Дата и время" value={event.dateTime} />
-                      <MetaBlock label="Место проведения" value={event.location} />
-                    </div>
+                    <p className="promo-event-location">{event.location}</p>
 
                     {hasExtra && (
                       <>
@@ -146,6 +142,10 @@ export default function PromoEvents() {
 
                         {isExpanded && (
                           <div className="promo-event-extra">
+                            <div className="promo-event-meta-grid">
+                              <MetaBlock label="Дата и время" value={event.dateTime} />
+                              <MetaBlock label="Место проведения" value={event.location} />
+                            </div>
                             <p className="promo-event-extra-text">{event.fullDescription}</p>
                           </div>
                         )}
@@ -291,12 +291,21 @@ export default function PromoEvents() {
           font-size: 15px;
           line-height: 1.65;
           color: rgba(26, 10, 0, 0.72);
+          margin: 0 0 10px;
+        }
+
+        .promo-event-location {
+          font-family: "Inter", sans-serif;
+          font-size: 14px;
+          line-height: 1.55;
+          color: rgba(26, 10, 0, 0.5);
           margin: 0 0 18px;
         }
 
         .promo-event-meta-grid {
           display: grid;
           gap: 14px;
+          margin-bottom: 16px;
         }
 
         .promo-event-meta-label {

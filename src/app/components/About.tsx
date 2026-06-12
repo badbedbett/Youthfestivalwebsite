@@ -1,7 +1,7 @@
 export default function About() {
   const handleRegistration = () => {
     // Переход на форму регистрации
-    window.open('https://reg.example.com', '_blank')
+    window.open('https://den-molodezhi-2026.timepad.ru/event/4025106/', '_blank')
   }
 
   return (
