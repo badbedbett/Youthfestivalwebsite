@@ -1,6 +1,6 @@
 .hero-partners-grid {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 10px;
 }
 
@@ -33,23 +33,26 @@
   line-height: 0;
 }
 
-.hero-partner-cell--featured {
-  grid-column: 3;
-  justify-self: center;
-  width: 100%;
-  min-width: 0;
-  max-width: none;
-  padding: 14px 12px;
-  min-height: 72px;
-}
+/* Десктоп: 4 / 4 / 2 / 1 — нижние ряды по центру */
 
-/* 3-я строка: 2 логотипа по центру, 1 и 4 колонки пустые */
+/* 3-я строка: Enter и DFM в колонках 2 и 3 (по центру) */
 .hero-partner-cell:nth-child(9) {
   grid-column: 2;
 }
 
 .hero-partner-cell:nth-child(10) {
-  grid-column: 4;
+  grid-column: 3;
+}
+
+/* 4-я строка: PROPS по центру, ширина одной ячейки */
+.hero-partner-cell--featured {
+  grid-column: 2 / span 2;
+  justify-self: center;
+  width: calc((100% - 30px) / 4);
+  min-width: 0;
+  max-width: none;
+  padding: 14px 12px;
+  min-height: 72px;
 }
 
 @media (max-width: 768px) {
